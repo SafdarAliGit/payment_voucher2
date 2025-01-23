@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include payment_voucher2 *.css
+recursive-include payment_voucher2 *.csv
+recursive-include payment_voucher2 *.html
+recursive-include payment_voucher2 *.ico
+recursive-include payment_voucher2 *.js
+recursive-include payment_voucher2 *.json
+recursive-include payment_voucher2 *.md
+recursive-include payment_voucher2 *.png
+recursive-include payment_voucher2 *.py
+recursive-include payment_voucher2 *.svg
+recursive-include payment_voucher2 *.txt
+recursive-exclude payment_voucher2 *.pyc
