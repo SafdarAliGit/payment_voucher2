@@ -43,7 +43,8 @@ class ReceiptVoucher(Document):
                             'user_remark': f"{item.description if item.description else ''}, Ref:{item.ref_no}, {item.party if item.party else ''}",
                             'debit_in_account_currency': item.amount,
                             'credit_in_account_currency': 0,
-                            'cost_center': cost_center
+                            'cost_center': cost_center,
+                            'project':item.project
                         })
                         je.append("accounts", {
                             'account': item.account,
@@ -52,7 +53,8 @@ class ReceiptVoucher(Document):
                             'user_remark': f"{item.description}, Ref:{item.ref_no}",
                             'debit_in_account_currency': 0,
                             'credit_in_account_currency': item.amount,
-                            'cost_center': cost_center
+                            'cost_center': cost_center,
+                            'project':item.project
 
                         })
                     je.submit()
@@ -88,7 +90,8 @@ class ReceiptVoucher(Document):
                             'user_remark': f"{item.description}, Ref:{item.ref_no}",
                             'debit_in_account_currency': item.amount,
                             'credit_in_account_currency': 0,
-                            'cost_center': cost_center
+                            'cost_center': cost_center,
+                            'project':item.project
                         })
                         je.append("accounts", {
                             'account': item.account,
@@ -97,7 +100,8 @@ class ReceiptVoucher(Document):
                             'user_remark': f"{item.description}, Ref:{item.ref_no}",
                             'debit_in_account_currency': 0,
                             'credit_in_account_currency': item.amount,
-                            'cost_center': cost_center
+                            'cost_center': cost_center,
+                            'project':item.project
 
                         })
                     je.submit()

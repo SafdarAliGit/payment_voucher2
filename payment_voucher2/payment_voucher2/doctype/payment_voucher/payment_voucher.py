@@ -47,7 +47,8 @@ class PaymentVoucher(Document):
                             'user_remark': item.description,
                             'debit_in_account_currency': item.amount,
                             'credit_in_account_currency': 0,
-                            'cost_center': cost_center
+                            'cost_center': cost_center,
+                            'project':item.project
                         })
 
                         # Add credit entry
@@ -56,7 +57,8 @@ class PaymentVoucher(Document):
                             'debit_in_account_currency': 0,
                             'user_remark': f"{item.description if item.description else ''},{item.party if item.party else ''}",
                             'credit_in_account_currency': item.amount,
-                            'cost_center': cost_center
+                            'cost_center': cost_center,
+                            'project':item.project
                         })
 
                         # Submit the Journal Entry
@@ -94,7 +96,8 @@ class PaymentVoucher(Document):
                             'user_remark': f"{item.description}, Ref:{item.ref_no}",
                             'debit_in_account_currency': item.amount,
                             'credit_in_account_currency': 0,
-                            'cost_center': cost_center
+                            'cost_center': cost_center,
+                            'project':item.project
                         })
 
                         # Add credit entry
@@ -103,7 +106,8 @@ class PaymentVoucher(Document):
                             'debit_in_account_currency': 0,
                             'user_remark': f"{item.description}, Ref:{item.ref_no}",
                             'credit_in_account_currency': item.amount,
-                            'cost_center': cost_center
+                            'cost_center': cost_center,
+                            'project':item.project
                         })
 
                         # Submit the Journal Entry
