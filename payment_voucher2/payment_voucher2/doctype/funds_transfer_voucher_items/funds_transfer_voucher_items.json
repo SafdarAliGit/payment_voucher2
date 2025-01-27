@@ -11,7 +11,8 @@
   "description",
   "ref_no",
   "amount",
-  "project"
+  "project",
+  "cost_center"
  ],
  "fields": [
   {
@@ -47,12 +48,18 @@
    "fieldtype": "Link",
    "label": "Project",
    "options": "Project"
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "options": "Cost Center"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-01-23 20:05:11.908700",
+ "modified": "2025-01-27 17:27:56.849222",
  "modified_by": "Administrator",
  "module": "Payment Voucher2",
  "name": "Funds Transfer Voucher Items",
