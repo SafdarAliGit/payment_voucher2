@@ -1,12 +1,13 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:FT-{YY}-{#####}",
+ "autoname": "naming_series:",
  "creation": "2024-05-21 13:59:17.693809",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "naming_series",
   "company",
   "account",
   "column_break_zneg7",
@@ -86,6 +87,13 @@
    "options": "Funds Transfer Voucher",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "FTV-.YYYY.-",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -96,11 +104,11 @@
    "link_fieldname": "slip_no"
   }
  ],
- "modified": "2025-01-23 20:37:03.961171",
+ "modified": "2025-01-27 19:49:03.066768",
  "modified_by": "Administrator",
  "module": "Payment Voucher2",
  "name": "Funds Transfer Voucher",
- "naming_rule": "Expression",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {

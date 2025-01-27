@@ -1,12 +1,13 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:PV-{DD}-{#####}",
+ "autoname": "naming_series:",
  "creation": "2024-05-21 13:49:07.825224",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "naming_series",
   "company",
   "account",
   "column_break_zneg7",
@@ -86,6 +87,13 @@
    "options": "Company",
    "remember_last_selected_value": 1,
    "reqd": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "PV-.YYYY.-",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -96,11 +104,11 @@
    "link_fieldname": "slip_no"
   }
  ],
- "modified": "2024-11-05 20:55:06.339404",
+ "modified": "2025-01-27 19:46:20.257378",
  "modified_by": "Administrator",
  "module": "Payment Voucher2",
  "name": "Payment Voucher",
- "naming_rule": "Expression",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
