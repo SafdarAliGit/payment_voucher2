@@ -71,7 +71,7 @@ class PaymentVoucher(Document):
                 else:
                     if len(self.items) < 1:
                         frappe.throw("No detailed rows found")
-                    if self.pv_status > 0:
+                    if int(self.pv_status) > 0:
                         frappe.throw("Journal entry already created")
 
             elif account_type == "Bank":
@@ -122,7 +122,7 @@ class PaymentVoucher(Document):
                 else:
                     if len(self.items) < 1:
                         frappe.throw("No detailed rows found")
-                    if self.pv_status > 0:
+                    if int(self.pv_status) > 0:
                         frappe.throw("Journal entry already created")
         else:
             frappe.throw("Account type not found")
