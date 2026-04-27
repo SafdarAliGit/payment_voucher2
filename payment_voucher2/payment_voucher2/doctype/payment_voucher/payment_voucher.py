@@ -1,7 +1,7 @@
 import frappe
 from frappe.model.document import Document
 from frappe.model.naming import make_autoname
-from payment_voucher2.payment_voucher2.doctype.utils_functions import get_doctype_by_field
+from payment_voucher2.payment_voucher2.doctype.utils_functions import get_doctypes_by_field
 
 
 class PaymentVoucher(Document):
@@ -127,19 +127,23 @@ class PaymentVoucher(Document):
         else:
             frappe.throw("Account type not found")
 
+
     def on_cancel(self):
-        try:
-            self.pv_status = 0
-            current_je = get_doctype_by_field('Journal Entry', 'slip_no', self.name)
-            if current_je.docstatus != 2:  # Ensure the document is in the "Submitted" state
-                current_je.cancel()
-                frappe.db.commit()
-            else:
-                frappe.throw("Document is not in the 'Submitted' state.")
-            if current_je.amended_from:
-                new_name = int(current_je.name.split("-")[-1]) + 1
-            else:
-                new_name = f"{current_je.name}-{1}"
-            make_autoname(new_name, 'Jouranl Entry')
-        except Exception as e:
-            frappe.throw(f"Error canceling Payment Voucher {self.name}: {str(e)}")
+        journal_entries = get_doctypes_by_field('Journal Entry', 'slip_no', self.name)
+
+        if journal_entries:
+            for je in journal_entries:
+                entry = frappe.get_doc('Journal Entry', je.name)
+                if entry.docstatus != 2:  # Ensure the document is not already cancelled
+                    entry.cancel()
+                    frappe.db.commit()
+                else:
+                    frappe.throw(f"Journal Entry {entry.name} is already cancelled.")
+
+                # Generate new name for amendment if required
+                if entry.amended_from:
+                    new_name = f"{entry.name.split('-')[0]}-{int(entry.name.split('-')[-1]) + 1}"
+                else:
+                    new_name = f"{entry.name}-1"
+
+                make_autoname(new_name, 'Journal Entry')
