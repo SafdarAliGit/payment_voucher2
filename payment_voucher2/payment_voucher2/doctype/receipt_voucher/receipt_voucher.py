@@ -6,7 +6,7 @@ from frappe.model.docstatus import DocStatus
 # import frappe
 from frappe.model.document import Document
 from frappe.model.naming import make_autoname
-from payment_voucher2.payment_voucher2.doctype.utils_functions import get_doctypes_by_field
+from payment_voucher2.payment_voucher2.doctype.utils_functions import get_doctypes_by_field, get_doctype_by_field 
 
 
 class ReceiptVoucher(Document):
